@@ -4,7 +4,7 @@
     "apiVersion": "[variables('apiVersionLinkDefault')]",
     "dependsOn": [
         "vmLoopNode",
-        "[concat('Microsoft.Compute/virtualMachines/extensions/', variables('masterVMNamePrefix'), sub(variables('masterCount'), 1), '/waitforleader')]"
+        "[resourceId('Microsoft.Compute/virtualMachines/extensions', concat(variables('masterVMNamePrefix'), sub(variables('masterCount'), 1)), 'waitforleader')]"
     ],
     "properties": {
         "mode": "Incremental",
